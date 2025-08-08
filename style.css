@@ -1,0 +1,170 @@
+/* ---- Variable & Basic Setup ---- */
+:root {
+    --bg-color: #0a192f; /* Deep Navy Blue */
+    --board-color: #112240; /* Lighter Navy */
+    --player1-color: #ff4646; /* Vibrant Red */
+    --player1-glow: rgba(255, 70, 70, 0.7);
+    --player2-color: #ffd700; /* Bright Gold/Yellow */
+    --player2-glow: rgba(255, 215, 0, 0.7);
+    --text-color: #ccd6f6;
+    --accent-color: #64ffda; /* Mint Green for accents */
+    --cell-size: 8vmin;
+    --border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ---- Main Container & Typography ---- */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+h1 .four-text {
+    color: var(--accent-color);
+}
+
+#status {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    height: 30px; /* Reserve space to prevent layout shift */
+    transition: color 0.3s ease;
+}
+
+/* ---- Game Board & Cells ---- */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(7, var(--cell-size));
+    background-color: var(--board-color);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px -15px rgba(0,0,0,0.7);
+    position: relative; /* For hover preview piece */
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* For the piece inside */
+}
+
+/* The "hole" in the board */
+.cell::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: var(--bg-color);
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover::before {
+    background-color: #1b3a63; /* Slightly lighter on hover */
+}
+
+/* ---- Player Pieces & Animations ---- */
+.piece {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    animation: drop-piece 0.4s ease-out forwards;
+}
+
+.player1 {
+    background-color: var(--player1-color);
+    box-shadow: 0 0 15px 3px var(--player1-glow);
+}
+
+.player2 {
+    background-color: var(--player2-color);
+    box-shadow: 0 0 15px 3px var(--player2-glow);
+}
+
+/* Preview piece for hover effect */
+.preview {
+    opacity: 0.5;
+    animation: none; /* No drop animation for preview */
+}
+
+/* Winning piece animation */
+.winning-piece {
+    animation: pulse-glow 1s infinite alternate;
+}
+
+@keyframes drop-piece {
+    from { transform: translateY(-300px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 15px 3px var(--player1-glow);
+        transform: scale(1);
+    }
+    to {
+        box-shadow: 0 0 30px 10px var(--player1-glow);
+        transform: scale(1.05);
+    }
+}
+
+.player2.winning-piece {
+    animation-name: pulse-glow-p2;
+}
+
+@keyframes pulse-glow-p2 {
+    from {
+        box-shadow: 0 0 15px 3px var(--player2-glow);
+        transform: scale(1);
+    }
+    to {
+        box-shadow: 0 0 30px 10px var(--player2-glow);
+        transform: scale(1.05);
+    }
+}
+
+
+/* ---- Restart Button ---- */
+#restart-button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#restart-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
