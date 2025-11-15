@@ -7,15 +7,91 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <div class="particles" id="particles"></div>
+    <canvas id="confetti-canvas"></canvas>
+    
     <div class="container">
-        <h1>CONNECT <span class="four-text">FOUR</span></h1>
-        <h2 id="status">Player 1's Turn</h2>
+        <header class="game-header">
+            <h1>CONNECT <span class="four-text">FOUR</span></h1>
+            <div class="controls">
+                <button id="sound-toggle" class="icon-btn" title="Toggle Sound">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                        <path class="sound-on" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="scoreboard">
+            <div class="score-card player1-card">
+                <div class="player-avatar p1-avatar"></div>
+                <div class="player-info">
+                    <input type="text" class="player-name" id="player1-name" value="Player 1" maxlength="12">
+                    <div class="score-display">
+                        <span class="score-label">Wins</span>
+                        <span class="score-value" id="player1-score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vs-divider">VS</div>
+
+            <div class="score-card player2-card">
+                <div class="player-avatar p2-avatar"></div>
+                <div class="player-info">
+                    <input type="text" class="player-name" id="player2-name" value="Player 2" maxlength="12">
+                    <div class="score-display">
+                        <span class="score-label">Wins</span>
+                        <span class="score-value" id="player2-score">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-container">
+            <h2 id="status">Player 1's Turn</h2>
+            <div class="turn-indicator" id="turn-indicator"></div>
+        </div>
+
         <div id="game-board"></div>
-        <button id="restart-button">Restart Game</button>
+
+        <div class="game-controls">
+            <button id="undo-button" class="control-btn secondary-btn" disabled>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 7v6h6"/>
+                    <path d="M21 17a9 9 0 00-9-9 9 9 0 00-6 2.3L3 13"/>
+                </svg>
+                Undo
+            </button>
+            <button id="restart-button" class="control-btn primary-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
+                </svg>
+                New Game
+            </button>
+            <button id="reset-scores" class="control-btn secondary-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 3h18v18H3z"/>
+                    <path d="M9 9l6 6M15 9l-6 6"/>
+                </svg>
+                Reset Scores
+            </button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Games</span>
+                <span class="stat-value" id="total-games">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Draws</span>
+                <span class="stat-value" id="draws">0</span>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -1,15 +1,29 @@
-Connect Four Glow ✨
-A modern, web-based reimagining of the classic Connect Four game with sleek visuals and smooth gameplay.
+Connect Four - Blood & Bone Edition 🎮
+A modern, web-based reimagining of the classic Connect Four game with a dramatic dark theme, blood red and white pieces, stunning visuals, and professional gameplay features.
 
 🚀 Features
-Modern Dark UI – Elegant dark theme with a high-contrast glowing color palette for a trendy, professional look.
-Smooth Drop Animations – Pieces fall gracefully with fluid transitions.
-Glowing Piece Effects – Winning pieces pulse with a vibrant glow for a satisfying visual reward.
-Hover Preview – See where your piece will land before clicking.
-Full Game Logic – Detects horizontal, vertical, and diagonal wins, plus draw conditions.
-Responsive Design – Scales seamlessly across devices and screen sizes.
-Pure Vanilla JavaScript – No frameworks or libraries — just HTML, CSS, and JS.
-One-Click Restart – Instantly reset the board for a new match.
+
+Visual & Design
+- Dark Atmospheric Background – Deep black gradient with floating particles for an immersive experience
+- Blood Red & White Theme – Dramatic high-contrast color scheme with blood red and pure white game pieces
+- Compact Board Design – Tight-fitting game board sized perfectly to the grid
+- Enhanced Drop Animations – Pieces fall with realistic physics and bounce effects
+- Winning Celebration – Animated confetti explosion and pulsing winning pieces
+- Hover Preview – Animated preview showing where your piece will land
+- Responsive Design – Seamlessly adapts to all screen sizes and devices
+
+Gameplay Features
+- Score Tracking – Persistent score system that saves wins, draws, and total games
+- Undo Move – Take back your last move with a single click
+- Custom Player Names – Personalize the game with editable player names
+- Game Statistics – Track total games played and draw count
+- Full Win Detection – Detects horizontal, vertical, and diagonal wins
+
+Technical Excellence
+- Pure Vanilla JavaScript – No frameworks or dependencies
+- LocalStorage Integration – Saves scores and player names between sessions
+- Smooth Animations – CSS3 keyframe animations with cubic-bezier easing
+- Professional UI/UX – Intuitive controls with visual feedback
 
 🛠️ Technologies Used
 HTML5 – Core structure and semantic markup.
@@ -26,16 +40,27 @@ Prerequisites
 A modern web browser that supports HTML5, CSS3, and JavaScript (e.g., Chrome, Firefox, Edge).
 
 🎮 How to Play
-Objective: Be the first to connect four of your pieces in a row — horizontally, vertically, or diagonally.
 
-Players:
-Player 1 → Red pieces
-Player 2 → Yellow pieces
+Objective
+Be the first to connect four of your pieces in a row — horizontally, vertically, or diagonally.
 
-Turn: Click on a column to drop your piece. It will fall to the lowest available slot.
-Win Condition: Four connected pieces in a line.
-Draw Condition: Board is full without a winner.
-Restart: Click "Restart Game" to start over.
+Players
+- Player 1 → Blood red pieces with dramatic glowing effects
+- Player 2 → Pure white pieces with bright glowing effects
+- Click on player names to customize them
+
+Gameplay
+1. Click on any column to drop your piece
+2. Pieces fall to the lowest available slot with realistic animation
+3. Use the Undo button to take back your last move
+4. First player to connect four pieces wins
+5. Winning pieces pulse and confetti celebrates your victory
+
+Controls
+- New Game – Start a fresh match (keeps scores)
+- Undo – Take back the last move
+- Reset Scores – Clear all statistics and start over
+- Sound Toggle – Enable/disable sound effects (visual indicator)
 
 📂 Code Structure
 ├── index.html   # Game structure & layout
@@ -55,10 +80,29 @@ Game State: 2D array tracks board status.
 Logic: Functions like findAvailableRow(), checkWin(), and isBoardFull() handle gameplay.
 UI Updates: Updates status text, highlights winning pieces, and resets the board.
 
-💡 Future Enhancements
-Player vs. AI mode.
-Sound effects for drops and wins.
-Customizable themes.
-Score tracking across matches.
+🎨 Customization
+The game uses CSS variables for easy theming. Edit the :root section in style.css to customize:
+- Colors for players and UI elements (currently blood red and white theme)
+- Animation speeds and effects
+- Board size and spacing
+- Glow intensities
+- Background gradients (currently deep black theme)
 
-If you like this project, ⭐ it on GitHub and share your feedback!
+🎨 Theme
+This edition features a dramatic **Blood & Bone** color scheme:
+- Deep black atmospheric background
+- Blood red pieces (Player 1) with crimson glow effects
+- Pure white pieces (Player 2) with bright luminous glow
+- Dark red accent colors throughout the UI
+- High contrast design for maximum visual impact
+
+💡 Future Enhancements
+- Player vs. AI mode with difficulty levels
+- Sound effects for drops, wins, and interactions
+- Multiple theme options (classic, neon, retro, cyberpunk)
+- Online multiplayer support
+- Tournament mode with brackets
+- Replay system to review past games
+- Additional color themes and customization options
+
+🌟 If you like this project, ⭐ it on GitHub and share your feedback!
